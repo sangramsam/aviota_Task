@@ -1,0 +1,56 @@
+const mongoose = require('mongoose');
+const config = require('../config/connect');
+const deviceSchema = mongoose.Schema({
+    hardware_id: {
+        type: String,
+        required: true,
+        lowercase: true,
+        unique: true
+    },
+    hardware_name: {
+        type: String,
+        required: true,
+        lowercase: true,
+    },
+    hardware_type: {
+        type: String,
+        required: true,
+        lowercase: true,
+    },
+    hardware_quantity: {
+        type: String,
+        required: true,
+        lowercase: true,
+    },
+    hardware_owner: {
+        type: String,
+        required: true
+    },
+    cost: {
+        description: {
+            type: String,
+            required: true
+        },
+        price: {
+            type: String,
+            required: true
+        },
+        repair_price: {
+            type: String,
+            required: true
+        }
+    },
+    modified: {
+        type: String
+    }
+});
+const Device = module.exports = mongoose.model('Device', deviceSchema);
+//const Issue = module.exports = mongoose.model('Issue', issueSchema);
+
+module.exports.addDevice = function (newDevice, callback) {
+    newDevice.save(callback);
+}
+module.exports.getuser = function (callback) {
+    Device.find(callback);
+}
+
