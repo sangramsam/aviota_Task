@@ -50,7 +50,17 @@ const Device = module.exports = mongoose.model('Device', deviceSchema);
 module.exports.addDevice = function (newDevice, callback) {
     newDevice.save(callback);
 }
-module.exports.getuser = function (callback) {
+module.exports.getDeviceById = function (id, callback) {
+    const query = {hardware_id: id}
+    Device.findOne(query, callback);
+
+};
+module.exports.getDeviceByType = function (type, callback) {
+    const query = {hardware_type: type}
+    Device.findOne(query, callback);
+
+};
+module.exports.getDevice = function (callback) {
     Device.find(callback);
 }
 

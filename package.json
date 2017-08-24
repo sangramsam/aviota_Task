@@ -17,6 +17,7 @@
     "express": "~4.15.2",
     "express-json-status-codes": "^1.0.2",
     "jsonwebtoken": "*",
+    "moment": "^2.18.1",
     "mongodb": "^2.2.30",
     "mongoose": "^4.11.4",
     "morgan": "~1.8.1",

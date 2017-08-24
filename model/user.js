@@ -28,18 +28,22 @@ const employeeSchema = mongoose.Schema({
         required: true
     },
     issue: {
-                Issue_id: {
-                    type: String,
-                    required: true
-                },
-                cost: {
-                    type: String,
-                    required: true
-                },
-                hardwareType: {
-                    type: String,
-                    required: true
-                }
+        Issue_id: {
+            type: String,
+            required: true
+        },
+        cost: {
+            type: String,
+            required: true
+        },
+        hardwareType: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        }
     },
     /*issue: {
         type: Schema.Types.ObjectId,
@@ -53,10 +57,11 @@ const Employee = module.exports = mongoose.model('Employee', employeeSchema);
 //const Issue = module.exports = mongoose.model('Issue', issueSchema);
 
 module.exports.getUserById = function (id, callback) {
-    Employee.findById(id, callback);
+    const query = {id: id}
+    Employee.findOne(query, callback);
 }
 module.exports.getUserByName = function (userName, callback) {
-    const query = {username: userName}
+    const query = {name: userName}
     Employee.findOne(query, callback);
 
 }

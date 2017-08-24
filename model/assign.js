@@ -35,6 +35,10 @@ const Assign = module.exports = mongoose.model('Assign', assignSchema);
 module.exports.assignUser = function (newAssign, callback) {
     newAssign.save(callback);
 }
+module.exports.getByAssignId = function (hdd_id, callback) {
+    const query = {hardware_id: hdd_id}
+    Assign.findOne(query, callback);
+}
 module.exports.getuser = function (callback) {
     Assign.find(callback);
 }
